@@ -10,10 +10,10 @@ minSetCount = min(tbl{:, 2});
 
 imds = splitEachLabel(imds, minSetCount, 'randomized');
 
-wolf = find(imds.Labels == 'wolf', 1);
-whale = find(imds.Labels == 'whale', 1);
-turkey = find(imds.Labels == 'turkey', 1);
-pig = find(imds.Labels == 'pig', 1);
+% wolf = find(imds.Labels == 'wolf', 1);
+% whale = find(imds.Labels == 'whale', 1);
+% turkey = find(imds.Labels == 'turkey', 1);
+% pig = find(imds.Labels == 'pig', 1);
 
 % figure;
 % subplot(2, 2, 1);
@@ -80,5 +80,5 @@ imageFeatures = activations(net, ...
     ds, featureLayer, 'MiniBatchSize', 32, 'OutputAs', 'columns');
 
 label = predict(classifier, imageFeatures, 'ObservationsIn', 'columns');
-
-sprintf('The loaded image belongs to %s class', label)
+label = char(label);
+label = string(label)
